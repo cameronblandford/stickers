@@ -9,7 +9,7 @@ export default function NotFound() {
           House not found
         </h1>
         <p className="mt-6 text-base leading-7 text-gray-600">
-          Sorry, we couldn't find the house you're looking for.
+          Sorry, we couldn&apos;t find the house you&apos;re looking for.
         </p>
         <div className="mt-10">
           <Link

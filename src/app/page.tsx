@@ -60,7 +60,7 @@ export default function Home() {
                 />
               </div>
               <p className="mt-2 text-sm text-gray-500">
-                This will be your house's URL: share.house/
+                This will be your house&apos;s URL: share.house/
                 <span className="text-gray-900">house-name</span>
               </p>
             </div>
