@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model House {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  sections HouseSection[]
+  users    HouseUser[]
+}
+
+model HouseSection {
+  id        String   @id @default(cuid())
+  name      String
+  archived  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  
+  houseId String
+  house   House  @relation(fields: [houseId], references: [id], onDelete: Cascade)
+  tasks   Task[]
+}
+
+model Task {
+  id        String   @id @default(cuid())
+  name      String
+  createdAt DateTime @default(now())
+  
+  sectionId String
+  section   HouseSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  stars     Star[]
+}
+
+model Star {
+  id              String   @id @default(cuid())
+  color           String
+  rotationDegrees Float
+  xOffset         Float
+  yOffset         Float
+  createdAt       DateTime @default(now())
+  
+  taskId String
+  task   Task   @relation(fields: [taskId], references: [id], onDelete: Cascade)
+}
+
+model HouseUser {
+  id        String   @id @default(cuid())
+  name      String
+  color     String
+  createdAt DateTime @default(now())
+  
+  houseId String
+  house   House  @relation(fields: [houseId], references: [id], onDelete: Cascade)
+
+  @@unique([houseId, color])
+}
