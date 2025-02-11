@@ -5,7 +5,6 @@ import { House, HouseSection, Task } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
-import clsx from "clsx";
 
 type HouseWithRelations = House & {
   sections: (HouseSection & {
