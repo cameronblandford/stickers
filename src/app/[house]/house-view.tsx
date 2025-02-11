@@ -7,6 +7,8 @@ import { StarIcon as StarIconOutline } from "@heroicons/react/24/outline";
 import { StarIcon as StarIconSolid } from "@heroicons/react/24/solid";
 import { STAR_COLORS } from "@/lib/constants";
 import clsx from "clsx";
+import { Cog6ToothIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 type HouseWithRelations = House & {
   sections: (HouseSection & {
@@ -122,6 +124,12 @@ export function HouseView({ house }: { house: HouseWithRelations }) {
                     <span>{user.name}</span>
                   </div>
                 ))}
+                <Link
+                  href={`/${house.name}/settings`}
+                  className="ml-4 rounded-full p-2 text-gray-400 hover:bg-indigo-50 hover:text-indigo-600"
+                >
+                  <Cog6ToothIcon className="h-6 w-6" />
+                </Link>
               </div>
             </div>
           </div>
@@ -243,6 +251,7 @@ export function HouseView({ house }: { house: HouseWithRelations }) {
                           <div key={color.id}>
                             <button
                               type="button"
+                              // @ts-expect-error - color.id is a string
                               onClick={() => setSelectedColor(color.id)}
                               className={clsx(
                                 "relative flex h-10 w-full items-center justify-center rounded-lg border py-3 transition-all hover:scale-105",
