@@ -5,10 +5,11 @@ import { HouseView } from "@/app/[house]/house-view";
 export default async function HousePage({
   params,
 }: {
-  params: { house: string };
+  params: Promise<{ house: string }>;
 }) {
+  const { house: houseSlug } = await params;
   const house = await prisma.house.findUnique({
-    where: { name: params.house },
+    where: { name: houseSlug },
     include: {
       sections: {
         where: { archived: false },
