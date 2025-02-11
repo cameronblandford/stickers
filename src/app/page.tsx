@@ -32,7 +32,7 @@ export default function Home() {
     <main className="flex min-h-full flex-col items-center justify-center py-12 px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h1 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-          share.house
+          Stickers
         </h1>
         <p className="mt-2 text-center text-sm text-gray-600">
           Create or join a house to get started
@@ -60,7 +60,7 @@ export default function Home() {
                 />
               </div>
               <p className="mt-2 text-sm text-gray-500">
-                This will be your house&apos;s URL: share.house/
+                This will be your house&apos;s URL: stickers.cam.fyi/
                 <span className="text-gray-900">house-name</span>
               </p>
             </div>

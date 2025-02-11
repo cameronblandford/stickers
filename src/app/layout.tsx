@@ -5,8 +5,8 @@ import { Quicksand } from "next/font/google";
 const quicksand = Quicksand({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "share.house",
-  description: "Track household tasks with your roommates",
+  title: "Stickers",
+  description: "Get a star when you do something good!",
 };
 
 export default function RootLayout({
