@@ -22,6 +22,7 @@ export function SettingsView({ house }: { house: HouseWithRelations }) {
     e.preventDefault();
     if (!newSectionName.trim() || isSubmitting) return;
 
+    // test
     setIsSubmitting(true);
     const res = await fetch("/api/house/section", {
       method: "POST",
